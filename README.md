@@ -2,6 +2,9 @@
 - 교재: 클론 코딩으로 시작하는 Next.js
 - 노트: [✏️ 학습 내용 기록](https://github.com/Juhye-Kim/practice-nextjs/issues)
 
+project | branch
+--|--
+깃허브 페이지 만들기| [github-list](https://github.com/Juhye-Kim/practice-nextjs/tree/github-list)
 ---
 
 ### 목차
