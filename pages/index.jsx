@@ -1,23 +1,25 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
+import fetch from "isomorphic-unfetch";
 
-const App = () => {
-    const [name, setName] = useState("");
-    const router = useRouter();
-
-    return (
-        <div>
-            <img src="/icon.png" />
-            <button type="button" onClick={() => router.push("/tomato")}>
-                tomato로 이동하기!
-            </button>
-            <p>이름</p>
-            <input value={name} onChange={(e) => setName(e.target.value)} style={{marginRight: "12px"}} />
-            <button type="button" onClick={() => router.push(`/vegetable/${name}`)}>
-                {name}으로 이동하기!
-            </button>
-        </div>
-    )
+const index = ({user}) => {
+    const username = user && user.name;
+    
+    return <div>{username}</div>;
 }
 
-export default App;
+export const getServerSideProps = async () => {
+    try {
+        const res = await fetch("https://api.github.com/users/Juhye-Kim");
+
+        if (res.status === 200) {
+            const user = await res.json();
+            
+            return {props: {user}};
+        }
+        return {props: {}};
+    } catch (e) {
+        console.log(e);
+        return {props: {}};
+    }
+}
+
+export default index;
