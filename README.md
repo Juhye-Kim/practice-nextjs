@@ -5,6 +5,7 @@
 project | branch
 --|--
 깃허브 페이지 만들기| [github-list](https://github.com/Juhye-Kim/practice-nextjs/tree/github-list)
+투두리스트 만들기| [todo-list](https://github.com/Juhye-Kim/practice-nextjs/tree/todo-list)
 ---
 
 ### 목차
