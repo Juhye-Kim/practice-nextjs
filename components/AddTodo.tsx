@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { addTodoAPI } from "../lib/api/todo";
@@ -77,6 +78,8 @@ const AddTodo: React.FC = () => {
     const [text, setText] = useState("");
     const [selectedColor, setSelectedColor] = useState<TodoType["color"]>();
 
+    const router = useRouter();
+
     const addTodo = async () => {
         try {
             if (!text || !selectedColor) {
@@ -85,6 +88,7 @@ const AddTodo: React.FC = () => {
             }
             await addTodoAPI({text, color: selectedColor});
             console.log("추가 완료");
+            router.push("/");
         } catch (e) {
             console.log(e);
         }

@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Data from "../../../lib/data";
-import todo from "../../../lib/data/todo";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "GET") {
